@@ -19,6 +19,8 @@ def get_data_dim(dataset):
         return 55
     elif "SMD" in dataset:
         return 38
+    elif "ASD" in dataset:
+        return 19
     else:
         raise ValueError("unknown dataset " + str(dataset))
 

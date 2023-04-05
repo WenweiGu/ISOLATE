@@ -10,7 +10,7 @@ from CVAE import CVAE
 
 
 class RTAnomaly(nn.Module):
-    def __init__(self, ndim, len_window, hidden_dim, pooling_ratio, threshold, dropout, filters, kernels, dilation,
+    def __init__(self, ndim, len_window, gnn_dim, pooling_ratio, threshold, dropout, filters, kernels, dilation,
                  layers, gru_dim, device, recon_filter, hidden_size, latent_size):
         super(RTAnomaly, self).__init__()
         self.device = device
@@ -19,7 +19,7 @@ class RTAnomaly(nn.Module):
         self.dropout = dropout
 
         # gcn
-        self.num_hidden = hidden_dim
+        self.num_hidden = gnn_dim
         self.pooling_ratio = pooling_ratio
 
         self.gat = GraphAttentionLayer(ndim, len_window)
