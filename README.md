@@ -1,3 +1,3 @@
 # ISOLATE
 
-[DOI](https://dl.acm.org/doi/pdf/10.1145/3702978)
+The paper is available at: https://dl.acm.org/doi/10.1145/3702978
