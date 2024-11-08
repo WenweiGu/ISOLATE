@@ -151,4 +151,4 @@ class RTAnomaly(nn.Module):
         # Using CVAE to reconstruct
         recon_embed, mu, log_var = self.cvae(x_embed, label)
 
-        return x_recon, recon_embed, x_embed, mu, log_var
+        return x_recon, recon_embed, x_embed, mu, log_var, A

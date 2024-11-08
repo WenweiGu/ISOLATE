@@ -6,23 +6,30 @@ import torch.nn.functional as F
 from sklearn.metrics import f1_score, precision_score, recall_score
 
 
-# test过程获取score
+# get test anomaly score
 def get_anomaly_score(iterator, model, device, cof):
     model.eval()
     score_list = []
+    correlation_list = []
+    anomaly_score = []
 
     with torch.no_grad():
         for x in iterator:
-            x = x.to(device)  # 先放GPU上
+            x = x.to(device)  # Put into GPU
             x = x.permute(0, 2, 1)
-            test_label = torch.zeros((x.shape[0], 1)).to(device)
-            x_recon, recon_embed, embed, _, _ = model(x, test_label)
+            test_label = torch.zeros((x.shape[0], 1)).to(device)  # all set as 0
+
+            x_recon, recon_embed, embed, _, _, A = model(x, test_label)
             score = torch.sqrt(F.mse_loss(x, x_recon)).cpu().numpy() + cof * torch.norm(recon_embed - embed,
                                                                                         dim=1).cpu().numpy()
 
-            score_list.extend(score)
+            score_metrics = np.abs((x_recon - x).sum(axis=2).cpu().numpy())
 
-    return score_list
+            anomaly_score.extend(score_metrics)
+            score_list.extend(score)
+            correlation_list.extend(A)
+
+    return score_list, correlation_list, score_metrics
 
 
 def adjust_pred(pred, label):
