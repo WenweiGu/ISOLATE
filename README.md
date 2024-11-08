@@ -8,7 +8,7 @@ Here is the repository for the TOSEM paper "Identifying Performance Issues in Cl
 
 The following figure shows the overview of our framework ISOLATE, an automated method for detecting performance anomalies. ISOLATE consists of two main parts: the relational-temporal embedding part and the anomaly detection with the LC-VAE part. The relational-temporal embedding part captures relational and temporal patterns from the original metrics by employing graph attention to extract correlations among metrics and capturing temporal dependencies through GRU and temporal convolution. The anomaly detection part utilizes a label-conditional-VAE (LC-VAE) to distinguish anomalies from normal patterns. 
 
-![ISOLATE](![ISOLATE](https://github.com/user-attachments/assets/276eafa6-2cb0-4d0b-8422-e290fdd9e7ea))
+![ISOLATE](https://github.com/user-attachments/assets/bcab7c1b-d229-4eb6-ae20-a44af925e65f)
 
 ## Datasets
 
