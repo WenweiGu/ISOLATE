@@ -25,3 +25,14 @@ Cd to the current working directory and simply run:
 
 If you want to localize the anomalous metrics, please run:
 ```python train_rca.py```
+
+### Citation
+If you find our repo helpful, please cite our paper: 
+```
+@article{guidentifying,
+  title={Identifying Performance Issues in Cloud Service Systems Based on Relational-Temporal Features},
+  author={Gu, Wenwei and Liu, Jinyang and Chen, Zhuangbin and Zhang, Jianping and Su, Yuxin and Gu, Jiazhen and Feng, Cong and Yang, Zengyin and Yang, Yongqiang and Lyu, Michael R},
+  journal={ACM Transactions on Software Engineering and Methodology},
+  publisher={ACM New York, NY}
+}
+```
